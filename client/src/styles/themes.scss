@@ -1,0 +1,19 @@
+$themes: (
+  '.theme-light' '':
+    (
+      background-color-primary: #eaf7cf,
+      background-color-secondary: #eaf7cf,
+      text-color-primary: #202020,
+      text-color-secondary: #444444,
+      link-color: #202020,
+      link-color-hover: #1565c0
+    ),
+  '.theme-dark': (
+    background-color-primary: #202020,
+    background-color-secondary: #444444,
+    text-color-primary: #e1e1e1,
+    text-color-secondary: #bbbbbb,
+    link-color: #e1e1e1,
+    link-color-hover: #1565c0
+  )
+);
