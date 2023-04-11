@@ -2,6 +2,9 @@
 ::after,
 ::before {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
