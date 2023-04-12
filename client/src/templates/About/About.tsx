@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import './About.styles.scss';
 import { urlFor, client } from 'client';
 import { motion } from 'framer-motion';
@@ -6,22 +6,22 @@ import { withNavigationDots } from 'wrapper/withNavigationDots/withNavigationDot
 
 export interface AboutProps {}
 
-export const About: React.FC<AboutProps> = withNavigationDots(
-  ({}): JSX.Element => {
-    const [abouts, setAbouts] = useState<any[]>([]);
+export const About = forwardRef<HTMLDivElement, AboutProps>(({}, ref): JSX.Element => {
+  const [abouts, setAbouts] = useState<any[]>([]);
 
-    useEffect(() => {
-      const loadData = async () => {
-        const query = '*[_type=="abouts"]';
-        const response = await client.fetch(query);
-        setAbouts(response);
-      };
+  useEffect(() => {
+    const loadData = async () => {
+      const query = '*[_type=="abouts"]';
+      const response = await client.fetch(query);
+      setAbouts(response);
+    };
 
-      loadData();
-    }, []);
+    loadData();
+  }, []);
 
-    return (
-      <React.Fragment>
+  return (
+    <div ref={ref} id="about" className="app__section">
+      <div className="app__section__component">
         <div className="app__profiles">
           {abouts.map((about, index) => (
             <motion.div
@@ -41,8 +41,7 @@ export const About: React.FC<AboutProps> = withNavigationDots(
             </motion.div>
           ))}
         </div>
-      </React.Fragment>
-    );
-  },
-  { id: 'about' }
-);
+      </div>
+    </div>
+  );
+});
