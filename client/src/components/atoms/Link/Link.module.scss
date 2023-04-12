@@ -1,0 +1,14 @@
+.link {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    color: lightblue;
+  }
+
+  &:hover {
+    color: navy;
+  }
+}

@@ -11,8 +11,10 @@ export interface SkillsTemplateProps {
 }
 
 export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experiences }): JSX.Element => {
-  const primarySkills = useMemo(() => skills.filter((skill) => skill.primary), skills);
-  const secondarySkills = useMemo(() => skills.filter((skill) => !skill.primary), skills);
+  const sortedSkills = useMemo(() => skills.sort((a, b) => a.importance - b.importance), skills);
+
+  const primarySkills = useMemo(() => sortedSkills.filter((skill) => skill.primary), sortedSkills);
+  const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), sortedSkills);
 
   return (
     <div className={styles['root']}>

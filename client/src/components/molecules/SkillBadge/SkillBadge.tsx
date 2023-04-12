@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './SkillBadge.module.scss';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import { TechnologyIcon } from 'components/atoms/TechnologyIcon';
 
-export interface SkillProps {
+export interface SkillBadgeProps {
   alt?: string;
   bgColor?: string;
   label?: string;
@@ -11,7 +12,7 @@ export interface SkillProps {
   src: string;
 }
 
-export const SkillBadge: React.FC<SkillProps> = ({
+export const SkillBadge: React.FC<SkillBadgeProps> = ({
   alt = '',
   bgColor = '',
   label = '',
@@ -24,7 +25,7 @@ export const SkillBadge: React.FC<SkillProps> = ({
         className={clsx(styles['skill__image'], styles[`skill__image--${size}`])}
         style={bgColor ? { backgroundColor: bgColor } : {}}
       >
-        <img src={src} alt={alt} />
+        <TechnologyIcon src={src} alt={alt} />
       </div>
       {label && <span className={styles['skill__label']}>{label}</span>}
     </motion.div>

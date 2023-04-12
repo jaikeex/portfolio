@@ -3,12 +3,12 @@
 .skill {
   flex-direction: column;
   text-align: center;
-  margin: 1rem;
 
   &__image {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1rem;
 
     width: 50px;
     height: 50px;
@@ -18,20 +18,6 @@
 
     &:hover {
       box-shadow: 0 0 25px #fef4f5;
-    }
-
-    &--small {
-      img {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    &--standard {
-      img {
-        width: 2.5rem;
-        height: 2.5rem;
-      }
     }
   }
 

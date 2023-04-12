@@ -5,4 +5,5 @@ export interface Skill {
   bgColor: string;
   icon: SanityImageSource;
   primary: boolean;
+  importance: number;
 }
