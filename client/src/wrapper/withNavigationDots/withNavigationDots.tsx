@@ -17,7 +17,6 @@ export const withNavigationDots = <T extends JSX.IntrinsicAttributes>(
       <div className="wrapper__component">
         <Component {...props} />
       </div>
-      <NavigationDots active={id} />
     </div>
   );
 };

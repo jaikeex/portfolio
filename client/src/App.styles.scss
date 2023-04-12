@@ -14,3 +14,36 @@
   justify-content: center;
   align-items: center;
 }
+
+.p-text {
+  font-size: 0.8rem;
+  text-align: left;
+  color: gray;
+  line-height: 1.5;
+}
+
+.bold-text {
+  font-size: 1rem;
+  font-weight: 800;
+  color: black;
+  text-align: left;
+}
+
+.app__section {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+
+  &__component {
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    padding: 4rem 2rem;
+
+    @media screen and (max-width: 450px) {
+      padding: 4rem 1rem 2rem;
+    }
+  }
+}
