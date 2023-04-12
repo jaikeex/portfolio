@@ -38,7 +38,7 @@ export const Project: React.FC<ProjectProps> = ({ project }): JSX.Element => {
             <FaGithub fontSize={14} />
           </Link>
         </div>
-        <div className={styles['project__description']}>{project.description}</div>
+        <Typography className={styles['project__description']}>{project.description}</Typography>
       </div>
     </div>
   );

@@ -3,21 +3,15 @@ import { images } from 'assets';
 import { client } from 'client';
 import emailjs from '@emailjs/browser';
 import './Footer.styles.scss';
+import { FaEnvelope, FaPhoneSquare } from 'react-icons/fa';
+import { Typography } from 'components';
 
 export interface FooterProps {}
 
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(({}, ref): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [formData, setFormData] = useState<any>({ name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const [loading, setLoading] = useState<any>(false);
-
-  const { username, email, message } = formData;
-
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -37,54 +31,36 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(({}, ref): JSX.Ele
   };
 
   return (
-    <div ref={ref} id="contact" className="app__section">
-      <div className="app__section__component">
-        <h2 className="head-text">Take a coffee & chat with me</h2>
+    <section ref={ref} id="contact">
+      <div className="app__footer">
+        <Typography variant="h1" className="head-text">
+          Take a coffee & chat with me
+        </Typography>
 
         <div className="app__footer-cards">
           <div className="app__footer-card ">
-            <img src={images.email} alt="email" />
+            <FaEnvelope />
             <a href="mailto:hello@micael.com" className="p-text">
-              hello@micael.com
+              hrubyy.jakub@gmail.com
             </a>
           </div>
           <div className="app__footer-card">
-            <img src={images.mobile} alt="phone" />
+            <FaPhoneSquare />
             <a href="tel:+1 (123) 456-7890" className="p-text">
-              +1 (123) 456-7890
+              +420 774 590 342
             </a>
           </div>
         </div>
         {!isFormSubmitted ? (
           <form ref={formRef} className="app__footer-form app__flex">
             <div className="app__flex">
-              <input
-                className="p-text"
-                type="text"
-                placeholder="Your Name"
-                name="username"
-                value={username}
-                onChange={handleChangeInput}
-              />
+              <input className="p-text" type="text" placeholder="Your Name" name="username" />
             </div>
             <div className="app__flex">
-              <input
-                className="p-text"
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                value={email}
-                onChange={handleChangeInput}
-              />
+              <input className="p-text" type="email" placeholder="Your Email" name="email" />
             </div>
             <div>
-              <textarea
-                className="p-text"
-                placeholder="Your Message"
-                value={message}
-                name="message"
-                onChange={handleChangeInput}
-              />
+              <textarea className="p-text" placeholder="Your Message" name="message" />
             </div>
             <button type="button" className="p-text" onClick={handleSubmit}>
               {!loading ? 'Send Message' : 'Sending...'}
@@ -97,6 +73,6 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(({}, ref): JSX.Ele
         )}
       </div>
       ;
-    </div>
+    </section>
   );
 });

@@ -12,7 +12,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): J
   return (
     <div className={styles['work-exp']}>
       <div className={styles['work-exp__year']}>
-        <Typography variant="h4" weight={700}>
+        <Typography variant="h4" weight={600}>
           {experience.year}
         </Typography>
       </div>
@@ -27,7 +27,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): J
           <Typography variant="h4" weight={500}>
             {experience.position}
           </Typography>
-          <Typography>{experience.company}</Typography>
+          <Typography weight={500}>{experience.company}</Typography>
           <Typography>{experience.desc}</Typography>
         </motion.div>
       </div>

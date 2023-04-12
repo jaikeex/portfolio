@@ -5,6 +5,7 @@ import { NavigationDots } from 'components/NavigationDots';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'utils/query-client';
 import { SkillsPage } from 'pages/SkillsPage/SkillsPage';
+import { ThemeContextProvider } from 'context/ThemeContext';
 
 const App = () => {
   const [activeDot, setActiveDot] = useState(0);
@@ -39,16 +40,18 @@ const App = () => {
   }, [sectionRefs]);
 
   return (
-    <div className="theme-light">
+    <ThemeContextProvider defaultTheme="light">
       <QueryClientProvider client={queryClient}>
-        <NavigationDots active={activeDot} />
-        <Navbar />
-        <About ref={aboutRef} />
-        <Projects ref={projectsRef} />
-        <SkillsPage ref={skillsRef} />
-        <Footer ref={contactRef} />
+        <div className="app">
+          <NavigationDots active={activeDot} />
+          <Navbar />
+          <About ref={aboutRef} />
+          <Projects ref={projectsRef} />
+          <SkillsPage ref={skillsRef} />
+          <Footer ref={contactRef} />
+        </div>
       </QueryClientProvider>
-    </div>
+    </ThemeContextProvider>
   );
 };
 

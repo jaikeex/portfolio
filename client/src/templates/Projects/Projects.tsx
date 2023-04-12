@@ -41,19 +41,17 @@ export const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({}, ref): JSX
   }, []);
 
   return (
-    <div ref={ref} id="projects" className="app__section">
-      <div className="app__section__component">
-        <h2>My projects</h2>
-        <motion.div
-          animate={animateCard}
-          transition={{ duration: 0.25, delayChildren: 0.25 }}
-          className="app__work-portfolio"
-        >
-          {projects.map((project) => (
-            <Project project={project} />
-          ))}
-        </motion.div>
-      </div>
-    </div>
+    <section ref={ref} id="projects" className="projects">
+      <h1>My projects</h1>
+      <motion.div
+        animate={animateCard}
+        transition={{ duration: 0.25, delayChildren: 0.25 }}
+        className="app__work-portfolio"
+      >
+        {projects.map((project) => (
+          <Project project={project} />
+        ))}
+      </motion.div>
+    </section>
   );
 });

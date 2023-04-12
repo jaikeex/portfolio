@@ -1,9 +1,12 @@
+@import '@styles/main.scss';
+
 .project {
   display: flex;
   gap: 2rem;
   width: 80%;
 
   &__image {
+    flex-shrink: 0;
     width: 200px;
     height: 200px;
 

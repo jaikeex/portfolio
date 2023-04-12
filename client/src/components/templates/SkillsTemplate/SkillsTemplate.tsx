@@ -18,9 +18,12 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
 
   return (
     <div className={styles['root']}>
-      <Typography variant="h2">Skills & Experience</Typography>
+      <Typography variant="h1">Skills & Experience</Typography>
       <SkillsList skills={primarySkills} heading="Primary Skills" />
       <SkillsList skills={secondarySkills} heading="Also Worked With" />
+      <Typography variant="h3" className={styles['skills-list__heading']}>
+        Professional Experience
+      </Typography>
       {experiences.map((experience: any) => (
         <WorkExperience experience={experience} />
       ))}
