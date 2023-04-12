@@ -1,0 +1,29 @@
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  margin-top: 3rem;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__items {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media screen and (max-width: 900px) {
+      margin-right: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
