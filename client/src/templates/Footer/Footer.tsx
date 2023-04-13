@@ -72,7 +72,6 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(({}, ref): JSX.Ele
           </div>
         )}
       </div>
-      ;
     </section>
   );
 });

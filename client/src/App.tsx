@@ -1,7 +1,7 @@
-import React, { createRef, useEffect, useRef, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import 'App.styles.scss';
-import { About, Footer, Header, Navbar, Projects } from './templates';
-import { NavigationDots } from 'components/NavigationDots';
+import { About, Footer, Navbar, Projects } from './templates';
+import { NavigationDots } from 'components/molecules/NavigationDots';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'utils/query-client';
 import { SkillsPage } from 'pages/SkillsPage/SkillsPage';
@@ -40,7 +40,7 @@ const App = () => {
   }, [sectionRefs]);
 
   return (
-    <ThemeContextProvider defaultTheme="light">
+    <ThemeContextProvider>
       <QueryClientProvider client={queryClient}>
         <div className="app">
           <NavigationDots active={activeDot} />

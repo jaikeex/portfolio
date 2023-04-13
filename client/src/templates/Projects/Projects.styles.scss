@@ -9,7 +9,6 @@
 .app__work {
   flex: 1;
   width: 100%;
-  flex-direction: column;
 
   &-filter {
     display: flex;
@@ -46,10 +45,10 @@
   &-portfolio {
     margin-top: 3rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
+    flex-wrap: wrap;
 
     .app__work-item {
       height: 100%;

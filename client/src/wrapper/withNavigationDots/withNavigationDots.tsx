@@ -1,7 +1,6 @@
 import React from 'react';
 import './withNavigationDots.styles.scss';
-import { NavigationDots } from 'components/NavigationDots/NavigationDots';
-import { SocialMedia } from 'components/SocialMedia/SocialMedia';
+import { NavigationDots } from 'components/molecules/NavigationDots/NavigationDots';
 
 export interface WithNavigationDotsProps {
   className?: string;

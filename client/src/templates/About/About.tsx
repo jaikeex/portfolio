@@ -2,11 +2,14 @@ import React, { useState, useEffect, forwardRef } from 'react';
 import './About.styles.scss';
 import { urlFor, client } from 'client';
 import { motion } from 'framer-motion';
-import { withNavigationDots } from 'wrapper/withNavigationDots/withNavigationDots';
+import { useSanityData } from 'hooks';
+import { Typography } from 'components';
 
 export interface AboutProps {}
 
 export const About = forwardRef<HTMLDivElement, AboutProps>(({}, ref): JSX.Element => {
+  const { data, error, isFetching, status } = useSanityData('about');
+
   const [abouts, setAbouts] = useState<any[]>([]);
 
   useEffect(() => {
@@ -20,8 +23,20 @@ export const About = forwardRef<HTMLDivElement, AboutProps>(({}, ref): JSX.Eleme
   }, []);
 
   return (
-    <div ref={ref} id="about" className="app__section">
+    <section ref={ref} id="about">
       <div className="app__section__component">
+        <Typography variant="h1">About me</Typography>
+        <div className="about__intro">
+          {status === 'success' && (
+            <div>
+              <img src={urlFor(data[0].imgUrl).url()} className="about__image" />
+              <Typography variant="h2" style={{ marginBottom: '1rem', transform: 'translateY(-1rem)' }}>
+                {data[0].name}
+              </Typography>
+              <Typography size="lg">{data[0].description}</Typography>
+            </div>
+          )}
+        </div>
         <div className="app__profiles">
           {abouts.map((about, index) => (
             <motion.div
@@ -42,6 +57,6 @@ export const About = forwardRef<HTMLDivElement, AboutProps>(({}, ref): JSX.Eleme
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 });

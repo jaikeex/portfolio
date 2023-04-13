@@ -1,12 +1,18 @@
-import React from 'react';
-import styles from './TechnologyIcon.module.scss';
+import React, { forwardRef } from 'react';
+import * as Styled from './styles';
 
 export interface TechnologyIconProps {
-  alt: string;
+  alt?: string;
   size?: 'small' | 'standard';
-  src: string;
+  src?: string;
 }
 
-export const TechnologyIcon: React.FC<TechnologyIconProps> = ({ alt, size = 'standard', src }): JSX.Element => {
-  return <img src={src} alt={alt} className={styles[`icon--${size}`]} />;
-};
+export const TechnologyIcon = forwardRef<HTMLDivElement, TechnologyIconProps>(
+  ({ alt = '', size = 'standard', src = '' }, ref): JSX.Element => {
+    return (
+      <Styled.Button size={size} ref={ref}>
+        <img src={src} alt={alt} />
+      </Styled.Button>
+    );
+  }
+);

@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react';
-import styles from './Typography.module.scss';
-import clsx from 'clsx';
+import * as Styled from './styles';
 
 type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+type TextAlign = 'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit';
 
 export type TypographyOwnProps<T extends Variant> = {
+  align?: TextAlign;
   size?: 'sm' | 'md' | 'lg';
   variant?: T;
   weight?: 300 | 400 | 500 | 600 | 700;
@@ -15,10 +16,10 @@ type TypographyProps<T extends Variant> = TypographyOwnProps<T> &
 
 export const Typography = forwardRef(
   <T extends Variant = 'p'>(
-    { className = '', children = '', size, style, variant, weight, ...props }: TypographyProps<T>,
+    { align = 'left', className = '', children = '', size, style, variant, weight, ...props }: TypographyProps<T>,
     ref: any
   ): JSX.Element => {
-    const Element = variant || 'p';
+    const element = variant || 'p';
 
     const elementStyles: React.CSSProperties = { ...style };
 
@@ -26,15 +27,12 @@ export const Typography = forwardRef(
       elementStyles.fontWeight = weight;
     }
 
+    elementStyles.textAlign = align;
+
     return (
-      <Element
-        ref={ref}
-        style={elementStyles}
-        className={clsx(className, size && styles[`typography--${size}`])}
-        {...props}
-      >
+      <Styled.Typography as={element} ref={ref} style={elementStyles} className={className} size={size} {...props}>
         {children}
-      </Element>
+      </Styled.Typography>
     );
   }
 );

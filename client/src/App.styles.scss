@@ -46,9 +46,3 @@
     padding: 4rem 1rem 2rem;
   }
 }
-
-.app {
-  @include themify() {
-    background-color: themed(background-color-primary);
-  }
-}

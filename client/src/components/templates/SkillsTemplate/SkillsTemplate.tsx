@@ -1,6 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
-import styles from './SkillsTemplate.module.scss';
-import { useSanityData } from 'hooks/useSanityData';
+import React, { useMemo } from 'react';
 import { SkillsList, WorkExperience } from 'components';
 import { Typography } from 'components/atoms/Typography';
 import type { Skill, Work } from 'types';
@@ -17,11 +15,13 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
   const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), sortedSkills);
 
   return (
-    <div className={styles['root']}>
-      <Typography variant="h1">Skills & Experience</Typography>
+    <div>
+      <Typography variant="h1" align="center">
+        Skills & Experience
+      </Typography>
       <SkillsList skills={primarySkills} heading="Primary Skills" />
       <SkillsList skills={secondarySkills} heading="Also Worked With" />
-      <Typography variant="h3" className={styles['skills-list__heading']}>
+      <Typography variant="h3" align="center">
         Professional Experience
       </Typography>
       {experiences.map((experience: any) => (

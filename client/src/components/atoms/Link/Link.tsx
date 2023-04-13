@@ -1,6 +1,5 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
-import styles from './Link.module.scss';
-import clsx from 'clsx';
 
 export interface LinkProps extends React.PropsWithChildren {
   className?: string;
@@ -9,7 +8,18 @@ export interface LinkProps extends React.PropsWithChildren {
 
 export const Link: React.FC<LinkProps> = ({ children, className, href }): JSX.Element => {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className={clsx(styles['link'], className)}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={className}
+      css={{
+        '&, &:link, &:visited': {
+          textDecoration: 'none',
+          cursor: 'pointer'
+        }
+      }}
+    >
       {children}
     </a>
   );

@@ -6,7 +6,9 @@ $themes: (
       text-color-primary: #202020,
       text-color-label: #444444,
       link-color: #202020,
-      link-color-hover: #1565c0
+      link-color-hover: #1565c0,
+      button-color: #90caf9,
+      button-color-hover: #42a5f5
     ),
   '.theme-dark': (
     background-color-primary: #202020,
@@ -14,6 +16,9 @@ $themes: (
     text-color-primary: #e1e1e1,
     text-color-label: #bbbbbb,
     link-color: #e1e1e1,
-    link-color-hover: #1565c0
+    link-color-hover: #1565c0,
+
+    button-color: #1976d2,
+    button-color-hover: #1565c0
   )
 );

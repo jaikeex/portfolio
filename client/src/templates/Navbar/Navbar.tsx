@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { IconButton } from 'components/atoms/IconButton';
 import { MdDarkMode } from 'react-icons/md';
 import { useThemeContext } from 'context/ThemeContext';
+import { SocialMedia } from 'components/molecules/SocialMedia';
 
 export interface NavbarProps {}
 
@@ -33,11 +34,12 @@ export const Navbar: React.FC<NavbarProps> = ({}): JSX.Element => {
           </li>
         ))}
       </ul>
-
-      <IconButton onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-        <MdDarkMode />
-      </IconButton>
-
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <SocialMedia />
+        <IconButton onClick={() => setTheme(theme.name === 'light' ? 'dark' : 'light')}>
+          <MdDarkMode />
+        </IconButton>
+      </div>
       {/* MOBILE NAVIGATION */}
       <div className="navbar-menu">
         <HiMenuAlt1 onClick={handleOpenMobileNav} />
