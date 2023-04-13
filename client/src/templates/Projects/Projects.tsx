@@ -4,7 +4,7 @@ import { FaGithub, FaEye } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { withNavigationDots } from 'wrapper/withNavigationDots/withNavigationDots';
 import { urlFor, client } from 'client';
-import { Project } from 'components';
+import { Project, Typography } from 'components';
 
 export interface ProjectsProps {}
 
@@ -42,7 +42,9 @@ export const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({}, ref): JSX
 
   return (
     <section ref={ref} id="projects" className="projects">
-      <h1>My projects</h1>
+      <Typography variant="h1" align="center">
+        My projects
+      </Typography>
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.25, delayChildren: 0.25 }}

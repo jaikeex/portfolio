@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { TechnologyIconProps } from './TechnologyIcon';
 
-export const Button = styled('div')<TechnologyIconProps>((props) => ({
+export const Root = styled('div')<TechnologyIconProps>((props) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

@@ -1,11 +1,12 @@
 import React, { createRef, useEffect, useState } from 'react';
 import 'App.styles.scss';
-import { About, Footer, Navbar, Projects } from './templates';
+import { Footer, Navbar, Projects } from './templates';
 import { NavigationDots } from 'components/molecules/NavigationDots';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'utils/query-client';
 import { SkillsPage } from 'pages/SkillsPage/SkillsPage';
-import { ThemeContextProvider } from 'context/ThemeContext';
+import { ThemeProvider } from 'context/ThemeContext';
+import { AboutPage } from 'pages/AboutPage';
 
 const App = () => {
   const [activeDot, setActiveDot] = useState(0);
@@ -40,18 +41,18 @@ const App = () => {
   }, [sectionRefs]);
 
   return (
-    <ThemeContextProvider>
+    <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <div className="app">
           <NavigationDots active={activeDot} />
           <Navbar />
-          <About ref={aboutRef} />
+          <AboutPage ref={aboutRef} />
           <Projects ref={projectsRef} />
           <SkillsPage ref={skillsRef} />
           <Footer ref={contactRef} />
         </div>
       </QueryClientProvider>
-    </ThemeContextProvider>
+    </ThemeProvider>
   );
 };
 

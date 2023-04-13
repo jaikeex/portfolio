@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { mq } from 'themes/breakpoints';
+import { mq } from 'theme/breakpoints';
 import { NavigationDotsProps } from './NavigationDots';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -23,13 +23,13 @@ export const Dot = styled(ScrollLink)<{ active: boolean }>((props) => ({
   margin: '8px',
   cursor: 'pointer',
   transition: 'all 0.2s ease-in-out',
-  backgroundColor: props.theme.colors.buttonPrimary,
+  backgroundColor: props.theme.colors.neutral,
 
   '&:hover': {
     transform: 'scale(1.2)'
   },
 
   ...(props.active && {
-    backgroundColor: props.theme.colors.buttonSecondary
+    backgroundColor: props.theme.colors.accent
   })
 }));

@@ -10,9 +10,9 @@ export interface TechnologyIconProps {
 export const TechnologyIcon = forwardRef<HTMLDivElement, TechnologyIconProps>(
   ({ alt = '', size = 'standard', src = '' }, ref): JSX.Element => {
     return (
-      <Styled.Button size={size} ref={ref}>
+      <Styled.Root size={size} ref={ref}>
         <img src={src} alt={alt} />
-      </Styled.Button>
+      </Styled.Root>
     );
   }
 );

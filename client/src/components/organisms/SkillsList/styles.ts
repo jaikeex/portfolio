@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { SkillsListProps } from './SkillsList';
-import { mq } from 'themes/breakpoints';
+import { mq } from 'theme/breakpoints';
 
 export const Root = styled('div')<SkillsListProps>((props) =>
   mq({

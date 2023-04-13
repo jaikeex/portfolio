@@ -20,7 +20,7 @@ const globalStyles = (theme: Theme) => css`
   section {
     width: 100%;
     min-height: 100vh;
-    padding: 6rem 2rem;
+    padding: 6rem 4rem;
   }
 
   h1 {

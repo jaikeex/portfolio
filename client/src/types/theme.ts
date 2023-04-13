@@ -1,5 +1,4 @@
 export interface Theme {
-  name: string;
   colors: ThemeColors;
 }
 
@@ -10,4 +9,6 @@ interface ThemeColors {
   textSecodnary: string;
   buttonPrimary: string;
   buttonSecondary: string;
+  accent: string;
+  neutral: string;
 }

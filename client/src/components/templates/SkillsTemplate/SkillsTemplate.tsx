@@ -15,7 +15,7 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
   const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), sortedSkills);
 
   return (
-    <div>
+    <section>
       <Typography variant="h1" align="center">
         Skills & Experience
       </Typography>
@@ -27,6 +27,6 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
       {experiences.map((experience: any) => (
         <WorkExperience experience={experience} />
       ))}
-    </div>
+    </section>
   );
 };

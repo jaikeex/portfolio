@@ -4,10 +4,10 @@ import styles from './Project.module.scss';
 import type { ProjectData } from 'types';
 import { TechnologyBadge, Typography } from 'components';
 import { Link } from 'components/atoms/Link';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
+import parse from 'html-react-parser';
 
 export interface ProjectProps {
   project: ProjectData;
@@ -20,11 +20,11 @@ export const Project: React.FC<ProjectProps> = ({ project }): JSX.Element => {
         <img src={urlFor(project.imgUrl).url()} alt={`project ${project.title}`} />
       </div>
       <div className={styles['project__info']}>
-        <Typography variant="h2" className={styles['project__title']}>
+        <Typography variant="h2" align="center" className={styles['project__title']}>
           {project.title}
         </Typography>
         <Divider />
-        <Typography className={styles['project__description']}>{project.description}</Typography>
+        <Typography className={styles['project__description']}>{parse(project.description)}</Typography>
         <div className={styles['project__technologies']}>
           {project.technologies.map((tech) => (
             <TechnologyBadge name={tech.name} src={urlFor(tech.icon).url()} />

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { client } from 'client';
 
-export const useSanityData = (type: string) =>
-  useQuery({
+export const useSanityData = <T>(type: string) =>
+  useQuery<T>({
     queryKey: [type],
     queryFn: async () => {
       const query = `*[_type == "${type}"]`;
