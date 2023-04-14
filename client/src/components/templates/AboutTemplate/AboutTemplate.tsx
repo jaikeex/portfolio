@@ -14,7 +14,7 @@ export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, high
     <Typography variant="h1">About me</Typography>
     <Styled.Introduction>
       {introduction.map((paragraph, index) => (
-        <Typography key={index} size="lg" style={{ marginBottom: '1rem' }}>
+        <Typography key={index} size="md" style={{ marginBottom: '1rem' }}>
           {paragraph}
         </Typography>
       ))}

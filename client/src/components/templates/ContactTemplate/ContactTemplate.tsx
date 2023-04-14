@@ -12,7 +12,7 @@ type ContactTemplateProps = {
 
 export const ContactTemplate: React.FC<ContactTemplateProps> = ({ email, phone }): JSX.Element => (
   <React.Fragment>
-    <Typography variant="h1" className="head-text" removeMargin>
+    <Typography variant="h1" className="head-text" align="center" removeMargin>
       Take a coffee & chat with me
     </Typography>
     <Styled.ContactLinks>
