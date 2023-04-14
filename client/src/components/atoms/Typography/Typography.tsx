@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import * as Styled from './styles';
 
 type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
@@ -21,16 +21,20 @@ export const Typography = forwardRef(
   ): JSX.Element => {
     const element = variant || 'p';
 
-    const elementStyles: React.CSSProperties = { ...style };
+    const styles = useMemo(() => {
+      const elementStyles: React.CSSProperties = { ...style };
 
-    if (weight) {
-      elementStyles.fontWeight = weight;
-    }
+      if (weight) {
+        elementStyles.fontWeight = weight;
+      }
 
-    elementStyles.textAlign = align;
+      elementStyles.textAlign = align;
+
+      return elementStyles;
+    }, [align, weight]);
 
     return (
-      <Styled.Typography as={element} ref={ref} style={elementStyles} className={className} size={size} {...props}>
+      <Styled.Typography as={element} ref={ref} style={styles} className={className} size={size} {...props}>
         {children}
       </Styled.Typography>
     );

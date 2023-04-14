@@ -18,9 +18,12 @@ const globalStyles = (theme: Theme) => css`
   }
 
   section {
-    width: 100%;
     min-height: 100vh;
     padding: 6rem 4rem;
+
+    @media screen and (max-width: 900px) {
+      padding: 4rem 1rem;
+    }
   }
 
   h1 {

@@ -1,17 +1,13 @@
-import React from 'react';
-import * as Styled from './styles';
+import styled from '@emotion/styled';
 
-export interface CardProps extends React.PropsWithChildren {}
+export const Card = styled('div')({
+  borderRadius: '5px',
+  backgroundColor: 'white',
+  padding: '1rem',
+  transition: 'all 0.3s ease-in-out',
+  minWidth: '300px',
 
-export const Card: React.FC<CardProps> = ({ children }): JSX.Element => {
-  return (
-    <Styled.Root
-      whileInView={{ opacity: 1 }}
-      whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.5, type: 'tween' }}
-      className="app__profile-item"
-    >
-      {children}
-    </Styled.Root>
-  );
-};
+  '&:hover': {
+    boxShadow: '0 0 15px white'
+  }
+});

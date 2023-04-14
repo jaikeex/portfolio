@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { SkillsList, WorkExperience } from 'components';
 import { Typography } from 'components/atoms/Typography';
 import type { Skill, Work } from 'types';
+import { Section } from 'components/atoms/Section';
 
 export interface SkillsTemplateProps {
   skills: Skill[];
@@ -15,7 +16,7 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
   const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), sortedSkills);
 
   return (
-    <section>
+    <Section>
       <Typography variant="h1" align="center">
         Skills & Experience
       </Typography>
@@ -27,6 +28,6 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
       {experiences.map((experience: any) => (
         <WorkExperience experience={experience} />
       ))}
-    </section>
+    </Section>
   );
 };

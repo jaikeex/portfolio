@@ -12,7 +12,8 @@ export const Root = styled('div')(
     position: 'fixed',
     top: '50%',
     right: '2rem',
-    transform: 'translateY(-50%)'
+    transform: 'translateY(-50%)',
+    zIndex: 20
   })
 );
 

@@ -1,12 +1,18 @@
-import React from 'react';
-import * as Styled from './styles';
+import styled from '@emotion/styled';
 
-export interface ButtonProps extends React.PropsWithChildren, React.ComponentProps<'button'> {}
+export const Button = styled('button')((props) => ({
+  border: 'none',
+  borderRadius: '5px',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '0.5rem',
+  transition: 'background-color 0.2s',
+  cursor: props.disabled ? 'default' : 'pointer',
+  padding: '0.5rem 1rem',
+  backgroundColor: props.theme.colors.buttonPrimary,
 
-export const Button: React.FC<ButtonProps> = ({ children, ...props }): JSX.Element => {
-  return (
-    <Styled.Button className="button" {...props}>
-      {children}
-    </Styled.Button>
-  );
-};
+  '&:hover': {
+    backgroundColor: props.theme.colors.buttonSecondary
+  }
+}));

@@ -1,8 +1,6 @@
-import React from 'react';
-import * as Styled from './styles';
+import styled from '@emotion/styled';
 
-export interface DividerProps {}
-
-export const Divider: React.FC<DividerProps> = ({}): JSX.Element => {
-  return <Styled.Hr />;
-};
+export const Divider = styled('hr')((props) => ({
+  color: '#888888',
+  margin: '0.75rem 0'
+}));

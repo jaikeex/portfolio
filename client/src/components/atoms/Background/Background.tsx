@@ -1,7 +1,8 @@
 import React from 'react';
+import * as Styled from './styles';
 
-export const BackgroundAnimation = () => (
-  <div>
+export const BackgroundAnimation = ({ style }: { style: React.CSSProperties }) => (
+  <Styled.Background style={style}>
     <svg className="BgAnimation__svg" viewBox="0 0 602 602" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.15">
         <path
@@ -91,7 +92,7 @@ export const BackgroundAnimation = () => (
         rx="1.07433"
         ry="1.07306"
         transform="translate(-382.164 -155.029) rotate(90 382.164 155.029)"
-        fill="#F46737"
+        fill="#EE111E"
       >
         <animateMotion dur="10s" begin="1" repeatCount="indefinite" rotate="auto">
           <mpath xlinkHref="#path_0" />
@@ -112,7 +113,7 @@ export const BackgroundAnimation = () => (
         rx="1.07306"
         ry="1.07433"
         transform="translate(-333.324 -382.691) rotate(-180 333.324 382.691)"
-        fill="#F46737"
+        fill="#EE111E"
       >
         <animateMotion dur="5s" begin="0" repeatCount="indefinite" rotate="auto">
           <mpath xlinkHref="#path_1" />
@@ -133,7 +134,7 @@ export const BackgroundAnimation = () => (
         rx="1.07306"
         ry="1.07433"
         transform="translate(-165.524 -93.9596)"
-        fill="#F46737"
+        fill="#EE111E"
       >
         <animateMotion dur="10s" begin="3" repeatCount="indefinite" rotate="auto">
           <mpath xlinkHref="#path_0" />
@@ -233,8 +234,8 @@ export const BackgroundAnimation = () => (
           y2="129.989"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F46737" />
-          <stop offset="1" stopColor="#F46737" stopOpacity="0" />
+          <stop stopColor="#EE111E" />
+          <stop offset="1" stopColor="#EE111E" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint6_linear"
@@ -244,8 +245,8 @@ export const BackgroundAnimation = () => (
           y2="357.655"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F46737" />
-          <stop offset="1" stopColor="#F46737" stopOpacity="0" />
+          <stop stopColor="#EE111E" />
+          <stop offset="1" stopColor="#EE111E" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear"
@@ -255,8 +256,8 @@ export const BackgroundAnimation = () => (
           y2="118.996"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F46737" />
-          <stop offset="1" stopColor="#F46737" stopOpacity="0" />
+          <stop stopColor="#13ADC7" />
+          <stop offset="1" stopColor="#13ADC7" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint8_linear"
@@ -304,5 +305,5 @@ export const BackgroundAnimation = () => (
         </linearGradient>
       </defs>
     </svg>
-  </div>
+  </Styled.Background>
 );

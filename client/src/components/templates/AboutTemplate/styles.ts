@@ -1,13 +1,17 @@
 import styled from '@emotion/styled';
+import { mq } from 'theme';
 
 export const Section = styled('section')({
-  display: 'grid',
-  gridTemplateColumns: '2fr 1fr'
+  // display: 'grid',
+  // gridTemplateColumns: '2fr 1fr',
+  position: 'relative'
 });
 
-export const Introduction = styled('div')({
-  width: '80%'
-});
+export const Introduction = styled('div')(
+  mq({
+    width: ['60%', '100%', '100%', '80%']
+  })
+);
 
 export const Highlights = styled('div')({
   display: 'flex',

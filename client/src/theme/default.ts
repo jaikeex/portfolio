@@ -8,7 +8,7 @@ export const defaultTheme: Theme = {
     textSecodnary: '##fec576',
     buttonPrimary: '#005c9e',
     buttonSecondary: '#1565c0',
-    accent: '#678248',
-    neutral: '#e1e1e1'
+    accent: '#722FD0',
+    neutral: '#aaaaaa'
   }
 };

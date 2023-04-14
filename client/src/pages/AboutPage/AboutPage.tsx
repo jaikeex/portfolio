@@ -1,9 +1,7 @@
-import { AboutTemplate } from 'components/templates/AboutTemplate';
 import React, { forwardRef } from 'react';
+import { AboutTemplate } from 'components/templates/AboutTemplate';
 import { useSanityData } from 'hooks';
 import { About } from 'types/about';
-
-export interface AboutPageProps {}
 
 export const AboutPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
   const { data, error, isFetching } = useSanityData<About[]>('about');
@@ -21,8 +19,8 @@ export const AboutPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null
   }
 
   return (
-    <div ref={ref}>
-      <AboutTemplate highlights={data[0].highlights} introduction={data[0].introduction}></AboutTemplate>;
+    <div ref={ref} id="about">
+      <AboutTemplate highlights={data[0].highlights} introduction={data[0].introduction}></AboutTemplate>
     </div>
   );
 });

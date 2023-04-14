@@ -1,12 +1,13 @@
 import React, { createRef, useEffect, useState } from 'react';
 import 'App.styles.scss';
-import { Footer, Navbar, Projects } from './templates';
+import { Navbar, Projects } from './templates';
 import { NavigationDots } from 'components/molecules/NavigationDots';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'utils/query-client';
 import { SkillsPage } from 'pages/SkillsPage/SkillsPage';
 import { ThemeProvider } from 'context/ThemeContext';
 import { AboutPage } from 'pages/AboutPage';
+import { ContactPage } from 'pages/ContactPage';
 
 const App = () => {
   const [activeDot, setActiveDot] = useState(0);
@@ -49,7 +50,7 @@ const App = () => {
           <AboutPage ref={aboutRef} />
           <Projects ref={projectsRef} />
           <SkillsPage ref={skillsRef} />
-          <Footer ref={contactRef} />
+          <ContactPage ref={contactRef} />
         </div>
       </QueryClientProvider>
     </ThemeProvider>
