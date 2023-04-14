@@ -8,12 +8,12 @@ type ContactLinkProps = {
 } & React.PropsWithChildren;
 
 export const ContactLink: React.FC<ContactLinkProps> = ({ children, href, icon }): JSX.Element => (
-    <Styled.Root>
-      {icon && icon}
-      <Link href={href}>
-        <Typography variant="span" size="sm">
-          {children}
-        </Typography>
-      </Link>
-    </Styled.Root>
-  );
+  <Styled.Root>
+    {icon && icon}
+    <Link href={href}>
+      <Typography variant="span" size="sm">
+        {children}
+      </Typography>
+    </Link>
+  </Styled.Root>
+);

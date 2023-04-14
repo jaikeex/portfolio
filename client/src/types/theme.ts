@@ -1,5 +1,10 @@
+import type { CSSProperties } from 'react';
+import type { TypographyVariant } from './typography';
+
 export interface Theme {
+  borderRadius: string;
   colors: ThemeColors;
+  typography: TypographyOptions;
 }
 
 interface ThemeColors {
@@ -10,5 +15,12 @@ interface ThemeColors {
   buttonPrimary: string;
   buttonSecondary: string;
   accent: string;
-  neutral: string;
+  input: string;
+  grey: {
+    light: string;
+    medium: string;
+    dark: string;
+  };
 }
+
+type TypographyOptions = Omit<Record<TypographyVariant, CSSProperties>, 'span'>;

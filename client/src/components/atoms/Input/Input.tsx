@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Input = styled('input')({
+export const Input = styled('input')((props) => ({
   width: '100%',
   padding: '1rem',
   border: 'none',
@@ -8,10 +8,10 @@ export const Input = styled('input')({
   fontFamily: 'Open Sans',
   fontSize: '0.913rem',
   outline: 'none',
-  backgroundColor: '#ADB0C3',
-  color: '#202020',
+  backgroundColor: props.theme.colors.input,
+  color: props.theme.colors.textSecodnary,
 
   '&::placeholder': {
     color: 'rgba(0, 0, 0, 0.75)'
   }
-});
+}));

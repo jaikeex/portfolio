@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Typography } from 'components/atoms/Typography';
 import { motion } from 'framer-motion';
 
 export const Root = styled('div')({

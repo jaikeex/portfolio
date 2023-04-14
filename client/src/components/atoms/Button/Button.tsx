@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Button = styled('button')((props) => ({
   border: 'none',
-  borderRadius: '5px',
+  borderRadius: props.theme.borderRadius,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',

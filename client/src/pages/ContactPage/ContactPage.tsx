@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import { ContactTemplate } from 'components/templates/ContactTemplate';
 import { useSanityData } from 'hooks';
-import type { Contact } from 'types/contact';
+import type { ContactData } from 'types/contact';
 import { Section, Typography, Loader } from 'components';
 
 export const ContactPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
-  const { data, error, isFetching } = useSanityData<Contact[]>('contact');
+  const { data, error, isFetching } = useSanityData<ContactData[]>('contact');
 
   return (
     <Section ref={ref} id="contact">

@@ -1,5 +1,4 @@
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import type { Skill } from './skill';
 
 export interface ProjectData {
   title: string;

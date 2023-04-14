@@ -1,8 +1,22 @@
-import styled from '@emotion/styled';
+import React, { useMemo } from 'react';
+import * as Styled from './styles';
+type LinkProps = { openInNew?: boolean; } & React.PropsWithChildren & React.ComponentProps<'a'>;
 
-export const Link = styled('a')((props) => ({
-  '&, &:link, &:visited': {
-    textDecoration: 'none',
-    cursor: 'pointer'
-  }
-}));
+export const Link: React.FC<LinkProps> = ({ children = null, openInNew = false, ...props }): JSX.Element => {
+  const anchorProps = useMemo(() => {
+    const props = {} as LinkProps;
+
+    if (openInNew) {
+      props.rel = 'noreferrer';
+      props.target = '_blank';
+    }
+
+    return props;
+  }, [openInNew]);
+
+  return (
+    <Styled.Link {...anchorProps} {...props}>
+      {children}
+    </Styled.Link>
+  );
+};

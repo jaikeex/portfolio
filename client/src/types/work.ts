@@ -1,4 +1,4 @@
-export interface Work {
+export interface WorkData {
   year: string;
   position: string;
   company: string;

@@ -1,13 +1,12 @@
 import React, { useMemo } from 'react';
 import { SkillsList, WorkExperience } from 'components';
 import { Typography } from 'components/atoms/Typography';
-import type { Skill, Work } from 'types';
-import { Section } from 'components/atoms/Section';
+import type { SkillData, WorkData } from 'types';
 
-export interface SkillsTemplateProps {
-  skills: Skill[];
-  experiences: Work[];
-}
+type SkillsTemplateProps = {
+  skills: SkillData[];
+  experiences: WorkData[];
+};
 
 export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experiences }): JSX.Element => {
   const sortedSkills = useMemo(() => skills.sort((a, b) => a.importance - b.importance), skills);
@@ -25,7 +24,7 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
       <Typography variant="h3" align="center">
         Professional Experience
       </Typography>
-      {experiences.map((experience: Work, index) => (
+      {experiences.map((experience: WorkData, index) => (
         <WorkExperience key={index} experience={experience} />
       ))}
     </React.Fragment>

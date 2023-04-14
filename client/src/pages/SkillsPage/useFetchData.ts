@@ -1,16 +1,16 @@
 import { useSanityData } from 'hooks/useSanityData';
-import type { Skill, Work } from 'types';
+import type { SkillData, WorkData } from 'types';
 
 interface IUseFetchData {
-  skills?: Skill[];
-  experiences?: Work[];
+  skills?: SkillData[];
+  experiences?: WorkData[];
   error: unknown;
   isFetching: boolean;
 }
 
 export const useFetchData = (): IUseFetchData => {
-  const { data: skillsData, error: skillsErr, isFetching: isFetchingSkills } = useSanityData<Skill[]>('skills');
-  const { data: expData, error: expErr, isFetching: isFetchingExp } = useSanityData<Work[]>('experiences');
+  const { data: skillsData, error: skillsErr, isFetching: isFetchingSkills } = useSanityData<SkillData[]>('skills');
+  const { data: expData, error: expErr, isFetching: isFetchingExp } = useSanityData<WorkData[]>('experiences');
 
   return {
     skills: skillsData,

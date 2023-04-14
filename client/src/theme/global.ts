@@ -17,38 +17,34 @@ const globalStyles = (theme: Theme) => css`
     width: 100%;
   }
 
-  section {
-    min-height: 100vh;
-    padding: 6rem 4rem;
-
-    @media screen and (max-width: 900px) {
-      padding: 4rem 1rem;
-    }
+  h1 {
+    font-size: ${theme.typography.h1.fontSize};
+    font-weight: ${theme.typography.h1.fontWeight};
+    margin-bottom: ${theme.typography.h1.marginBottom};
   }
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 3rem;
+  h2 {
+    font-size: ${theme.typography.h2.fontSize};
+    font-weight: ${theme.typography.h2.fontWeight};
+    margin-bottom: ${theme.typography.h2.marginBottom};
   }
 
   h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: ${theme.typography.h3.fontSize};
+    font-weight: ${theme.typography.h3.fontWeight};
+    margin-bottom: ${theme.typography.h3.marginBottom};
   }
 
   h4 {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: ${theme.typography.h4.fontSize};
+    font-weight: ${theme.typography.h4.fontWeight};
+    margin-bottom: ${theme.typography.h4.marginBottom};
   }
 
   p {
-    font-size: 0.913rem;
-    text-align: left;
-    line-height: 1.5;
+    font-size: ${theme.typography.p.fontSize};
+    line-height: ${theme.typography.p.lineHeight};
   }
-
   h1,
   h2,
   h3,

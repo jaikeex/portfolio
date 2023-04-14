@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { NavigationDots } from 'components/molecules/NavigationDots';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'utils/query-client';

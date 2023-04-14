@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button } from 'components/atoms/Button';
 import { Typography } from 'components/atoms';
@@ -33,42 +33,48 @@ export const ContactForm: React.FC = (): JSX.Element => {
   const [formValues, setFormValues] = useState<FormValues>({ username: '', email: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormValues({ ...formValues, [event.target.name]: event.target.value });
-  };
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormValues({ ...formValues, [event.target.name]: event.target.value });
+    },
+    [setFormValues]
+  );
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent) => {
+      event.preventDefault();
+      setLoading(true);
 
-    if (!formRef.current) {
-      return;
-    }
-
-    try {
-      await validationSchema.validate(formValues, { abortEarly: false });
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
-      );
-      setLoading(false);
-      setIsFormSubmitted(true);
-    } catch (error) {
-      setLoading(false);
-
-      if (error instanceof Yup.ValidationError) {
-        const newErrors = error.inner.reduce((acc: FormErrors, curr) => {
-          acc[curr.path as keyof FormErrors] = curr.message;
-          return acc;
-        }, {});
-        setErrors(newErrors);
-      } else {
-        console.log(error);
+      if (!formRef.current) {
+        return;
       }
-    }
-  };
+
+      try {
+        await validationSchema.validate(formValues, { abortEarly: false });
+        await emailjs.sendForm(
+          import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+          import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
+          formRef.current,
+          import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
+        );
+        setLoading(false);
+        setIsFormSubmitted(true);
+      } catch (error) {
+        setLoading(false);
+
+        if (error instanceof Yup.ValidationError) {
+          const newErrors = error.inner.reduce((acc: FormErrors, curr) => {
+            acc[curr.path as keyof FormErrors] = curr.message;
+            return acc;
+          }, {});
+          setErrors(newErrors);
+        } else {
+          console.log(error);
+        }
+      }
+    },
+    [setLoading, setIsFormSubmitted, setLoading, setErrors, validationSchema, formRef]
+  );
 
   return (
     <Styled.Form ref={formRef} onSubmit={handleSubmit}>

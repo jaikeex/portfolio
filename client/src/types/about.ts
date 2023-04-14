@@ -1,11 +1,11 @@
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
-export interface About {
+export interface AboutData {
   introduction: string[];
-  highlights: Highlight[];
+  highlights: HighlightData[];
 }
 
-export interface Highlight {
+export interface HighlightData {
   title: string;
   description: string;
   imgUrl: SanityImageSource;

@@ -9,49 +9,49 @@ import { Divider } from 'components/atoms/Divider';
 import parse from 'html-react-parser';
 import * as Styled from './styles';
 
-export interface ProjectProps {
+type ProjectProps = {
   project: ProjectData;
-}
+};
 
 export const Project: React.FC<ProjectProps> = ({ project }): JSX.Element => (
-    <Styled.Root>
-      <Styled.ProjectImg>
-        <img src={urlFor(project.imgUrl).url()} alt={`project ${project.title}`} />
-      </Styled.ProjectImg>
-      <Styled.ProjectInfo>
-        <Typography variant="h2" align="center">
-          {project.title}
-        </Typography>
+  <Styled.Root>
+    <Styled.ProjectImg>
+      <img src={urlFor(project.imgUrl).url()} alt={`project ${project.title}`} />
+    </Styled.ProjectImg>
+    <Styled.ProjectInfo>
+      <Typography variant="h2" align="center" removeMargin>
+        {project.title}
+      </Typography>
 
-        <Divider />
+      <Divider />
 
-        <Typography align="center">{parse(project.description)}</Typography>
+      <Typography align="center">{parse(project.description)}</Typography>
 
-        <Styled.ProjectTechnologies>
-          {project.technologies.map((tech) => (
-            <TechnologyBadge key={tech.name} name={tech.name} src={urlFor(tech.icon).url()} />
-          ))}
-        </Styled.ProjectTechnologies>
+      <Styled.ProjectTechnologies>
+        {project.technologies.map((tech) => (
+          <TechnologyBadge key={tech.name} name={tech.name} src={urlFor(tech.icon).url()} />
+        ))}
+      </Styled.ProjectTechnologies>
 
-        <Styled.ProjectLinks>
-          <Link href={project.projectLink}>
-            <Button>
-              <Typography variant="span" size="md">
-                Homepage
-              </Typography>
-              <AiFillEye fontSize={24} />
-            </Button>
-          </Link>
+      <Styled.ProjectLinks>
+        <Link href={project.projectLink} openInNew>
+          <Button>
+            <Typography variant="span" size="md">
+              Homepage
+            </Typography>
+            <AiFillEye fontSize={24} />
+          </Button>
+        </Link>
 
-          <Link href={project.codeLink}>
-            <Button>
-              <Typography variant="span" size="md">
-                Source
-              </Typography>
-              <AiFillGithub fontSize={24} />
-            </Button>
-          </Link>
-        </Styled.ProjectLinks>
-      </Styled.ProjectInfo>
-    </Styled.Root>
-  );
+        <Link href={project.codeLink} openInNew>
+          <Button>
+            <Typography variant="span" size="md">
+              Source
+            </Typography>
+            <AiFillGithub fontSize={24} />
+          </Button>
+        </Link>
+      </Styled.ProjectLinks>
+    </Styled.ProjectInfo>
+  </Styled.Root>
+);

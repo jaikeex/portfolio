@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const TextArea = styled('textarea')({
+export const TextArea = styled('textarea')((props) => ({
   resize: 'none',
   maxLines: 10,
   width: '100%',
@@ -12,14 +12,14 @@ export const TextArea = styled('textarea')({
   fontSize: '0.913rem',
   outline: 'none',
 
-  backgroundColor: '#ADB0C3',
-  color: '#202020',
+  backgroundColor: props.theme.colors.input,
+  color: props.theme.colors.textSecodnary,
 
   '&::placeholder': {
     color: 'rgba(0, 0, 0, 0.75)'
   },
 
   '&:-webkit-autofill': {
-    backgroundColor: '#ADB0C3'
+    backgroundColor: props.theme.colors.input
   }
-});
+}));

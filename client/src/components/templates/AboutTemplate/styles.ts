@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { TitleAnimation } from 'components/atoms/TitleAnimation';
 import { device } from 'theme/breakpoints';
 
 export const Introduction = styled('div')({
@@ -28,3 +29,23 @@ export const Highlights = styled('div')({
     objectFit: 'cover'
   }
 });
+
+export const Animation = styled(TitleAnimation)<{ position: 'right' | 'left'; flip?: boolean; }>((props) => ({
+  display: 'none',
+  width: '400px',
+  position: 'absolute',
+  top: '15%',
+  transform: props.flip ? 'scale(-1, 1)' : '',
+
+  ...(props.position === 'left' && {
+    left: '5%'
+  }),
+
+  ...(props.position === 'right' && {
+    right: '5%'
+  }),
+
+  [device.md]: {
+    display: 'block'
+  }
+}));

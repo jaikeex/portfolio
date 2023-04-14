@@ -1,7 +1,9 @@
 import React from 'react';
 
-export const BackgroundAnimation = ({ style }: { style: React.CSSProperties; }) => (
-  <div style={style}>
+type TitleAnimationProps = { style?: React.CSSProperties; };
+
+export const TitleAnimation: React.FC<TitleAnimationProps> = (props) => (
+  <div {...props}>
     <svg viewBox="0 0 602 602" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.15">
         <path

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { HiX } from 'react-icons/hi';
 import * as Styled from './styles';
 
-export interface MobileMenuProps {
+type MobileMenuProps = {
   onclose?: () => void;
   onOpen?: () => void;
   sections: string[];
-}
+};
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   onOpen = () => {},

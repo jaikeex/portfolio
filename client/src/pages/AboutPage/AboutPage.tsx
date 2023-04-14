@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import { AboutTemplate } from 'components/templates/AboutTemplate';
 import { useSanityData } from 'hooks';
-import type { About } from 'types/about';
+import type { AboutData } from 'types/about';
 import { Loader, Section, Typography } from 'components';
 
 export const AboutPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
-  const { data, error, isFetching } = useSanityData<About[]>('about');
+  const { data, error, isFetching } = useSanityData<AboutData[]>('about');
 
   return (
     <Section ref={ref} id="about">

@@ -6,8 +6,8 @@ import globalStyles from 'theme/global';
 type ThemeContextProviderProps = React.PropsWithChildren;
 
 export const ThemeProvider: React.FC<ThemeContextProviderProps> = ({ children = null }) => (
-    <EmotionThemeProvider theme={defaultTheme}>
-      <Global styles={globalStyles(defaultTheme)} />
-      {children}
-    </EmotionThemeProvider>
-  );
+  <EmotionThemeProvider theme={defaultTheme}>
+    <Global styles={globalStyles(defaultTheme)} />
+    {children}
+  </EmotionThemeProvider>
+);

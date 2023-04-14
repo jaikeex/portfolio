@@ -5,9 +5,7 @@ export const useNavigationDots = (sectionRefs: React.RefObject<HTMLDivElement>[]
   const allRefsPopulated = useRef(false);
 
   useEffect(() => {
-    const checkAllRefsPopulated = () => {
-      return sectionRefs.every((ref) => ref.current !== null);
-    };
+    const checkAllRefsPopulated = () => sectionRefs.every((ref) => ref.current !== null);
 
     if (!allRefsPopulated.current && checkAllRefsPopulated()) {
       allRefsPopulated.current = true;

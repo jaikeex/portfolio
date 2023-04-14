@@ -18,14 +18,14 @@ export const Root = styled('div')({
   }
 });
 
-export const Dot = styled(ScrollLink)<{ active: boolean }>((props) => ({
+export const Dot = styled(ScrollLink)<{ active: boolean; }>((props) => ({
   width: '10px',
   height: '10px',
   borderRadius: '50%',
   margin: '8px',
   cursor: 'pointer',
   transition: 'all 0.2s ease-in-out',
-  backgroundColor: props.theme.colors.neutral,
+  backgroundColor: props.theme.colors.grey.medium,
 
   '&:hover': {
     transform: 'scale(1.2)'

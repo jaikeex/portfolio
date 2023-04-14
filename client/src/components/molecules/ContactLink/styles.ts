@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Card } from 'components/atoms/Card';
 
-export const Root = styled(Card)({
+export const Root = styled(Card)((props) => ({
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'flex-start',
@@ -15,6 +15,6 @@ export const Root = styled(Card)({
   },
 
   '& span': {
-    color: '#202020 '
+    color: props.theme.colors.textSecodnary
   }
-});
+}));
