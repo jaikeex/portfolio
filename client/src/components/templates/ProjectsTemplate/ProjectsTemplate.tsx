@@ -9,14 +9,14 @@ export interface ProjectsTemplateProps {
 }
 
 export const ProjectsTemplate: React.FC<ProjectsTemplateProps> = ({ projects }): JSX.Element => (
-    <Section>
-      <Typography variant="h1" align="center">
-        My projects
-      </Typography>
-      <Styled.ProjectsList>
-        {projects.map((project) => (
-          <Project key={project.title} project={project} />
-        ))}
-      </Styled.ProjectsList>
-    </Section>
-  );
+  <React.Fragment>
+    <Typography variant="h1" align="center">
+      My projects
+    </Typography>
+    <Styled.ProjectsList>
+      {projects.map((project) => (
+        <Project key={project.title} project={project} />
+      ))}
+    </Styled.ProjectsList>
+  </React.Fragment>
+);

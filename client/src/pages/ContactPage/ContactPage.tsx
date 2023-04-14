@@ -7,29 +7,11 @@ import { Section, Typography, Loader } from 'components';
 export const ContactPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
   const { data, error, isFetching } = useSanityData<Contact[]>('contact');
 
-  if (error) {
-    return (
-      <Section>
-        <Typography variant="h1">There was an error loading the data...</Typography>
-      </Section>
-    );
-  }
-
-  if (isFetching) {
-    return (
-      <Section>
-        <Loader />
-      </Section>
-    );
-  }
-
-  if (!data) {
-    return null;
-  }
-
   return (
-    <div ref={ref} id="contact">
-      <ContactTemplate email={data[0].email} phone={data[0].phone} />
-    </div>
+    <Section ref={ref} id="contact">
+      {!!error && <Typography variant="h1">There was an error loading the data...</Typography>}
+      {isFetching && <Loader />}
+      {data && <ContactTemplate email={data[0].email} phone={data[0].phone} />}
+    </Section>
   );
 });

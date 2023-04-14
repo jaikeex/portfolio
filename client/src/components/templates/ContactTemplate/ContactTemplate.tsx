@@ -12,18 +12,18 @@ export interface ContactTemplateProps {
 }
 
 export const ContactTemplate: React.FC<ContactTemplateProps> = ({ email, phone }): JSX.Element => (
-    <Section>
-      <Typography variant="h1" className="head-text">
-        Take a coffee & chat with me
-      </Typography>
-      <Styled.ContactLinks>
-        <ContactLink icon={<FaEnvelope />} href={`mailto:${email}`}>
-          {email}
-        </ContactLink>
-        <ContactLink icon={<FaPhoneSquare />} href={`tel:${phone}`}>
-          {phone}
-        </ContactLink>
-      </Styled.ContactLinks>
-      <ContactForm />
-    </Section>
-  );
+  <React.Fragment>
+    <Typography variant="h1" className="head-text">
+      Take a coffee & chat with me
+    </Typography>
+    <Styled.ContactLinks>
+      <ContactLink icon={<FaEnvelope />} href={`mailto:${email}`}>
+        {email}
+      </ContactLink>
+      <ContactLink icon={<FaPhoneSquare />} href={`tel:${phone}`}>
+        {phone}
+      </ContactLink>
+    </Styled.ContactLinks>
+    <ContactForm />
+  </React.Fragment>
+);

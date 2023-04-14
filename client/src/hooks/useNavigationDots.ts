@@ -1,13 +1,27 @@
-import { createRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useNavigationDots = (sectionRefs: React.RefObject<HTMLDivElement>[]) => {
   const [activeDot, setActiveDot] = useState(0);
+  const allRefsPopulated = useRef(false);
 
   useEffect(() => {
+    const checkAllRefsPopulated = () => {
+      return sectionRefs.every((ref) => ref.current !== null);
+    };
+
+    if (!allRefsPopulated.current && checkAllRefsPopulated()) {
+      allRefsPopulated.current = true;
+    }
+  }, [sectionRefs]);
+
+  useEffect(() => {
+    if (!allRefsPopulated) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log('LOL');
           if (entry.isIntersecting) {
             const index = sectionRefs.findIndex((ref) => ref.current?.id === entry.target.id);
             setActiveDot(index);
@@ -26,7 +40,7 @@ export const useNavigationDots = (sectionRefs: React.RefObject<HTMLDivElement>[]
         if (ref.current) observer.unobserve(ref.current);
       });
     };
-  }, [sectionRefs]);
+  }, [sectionRefs, allRefsPopulated]);
 
   return { activeDot };
 };

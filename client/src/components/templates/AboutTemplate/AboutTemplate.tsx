@@ -15,7 +15,7 @@ export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, high
   const sortedHighlights = useMemo(() => highlights.sort((a, b) => a.importance - b.importance), highlights);
 
   return (
-    <Section>
+    <React.Fragment>
       <Typography variant="h1">About me</Typography>
       <Styled.Introduction>
         {introduction.map((paragraph, index) => (
@@ -39,6 +39,6 @@ export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, high
       </Styled.Highlights>
       <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '20%', left: '5%' }} />
       <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '20%', right: '5%' }} />
-    </Section>
+    </React.Fragment>
   );
 };
