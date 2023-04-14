@@ -7,8 +7,7 @@ type ContactLinkProps = {
   href: string;
 } & React.PropsWithChildren;
 
-export const ContactLink: React.FC<ContactLinkProps> = ({ children, href, icon }): JSX.Element => {
-  return (
+export const ContactLink: React.FC<ContactLinkProps> = ({ children, href, icon }): JSX.Element => (
     <Styled.Root>
       {icon && icon}
       <Link href={href}>
@@ -18,4 +17,3 @@ export const ContactLink: React.FC<ContactLinkProps> = ({ children, href, icon }
       </Link>
     </Styled.Root>
   );
-};

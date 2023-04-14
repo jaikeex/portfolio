@@ -7,8 +7,7 @@ export interface WorkExperienceProps {
   experience: Work;
 }
 
-export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): JSX.Element => {
-  return (
+export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): JSX.Element => (
     <Styled.Root>
       <div>
         <Typography variant="h4" weight={600}>
@@ -30,4 +29,3 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): J
       </Styled.Info>
     </Styled.Root>
   );
-};

@@ -1,4 +1,4 @@
-import { client } from 'client';
+import { client } from 'utils/sanity-client';
 
 export const fetchSanityData = async (type: string) => {
   const query = `*[_type=="${type}"] | order(importance asc)`;

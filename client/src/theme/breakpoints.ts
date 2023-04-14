@@ -1,13 +1,13 @@
-import facepaint from 'facepaint';
+const breakpoints = {
+  xs: '425px',
+  sm: '768px',
+  md: '1366px',
+  lg: '1920px'
+};
 
-const breakpoints = [480, 800, 1200, 2000];
-
-export const mq = facepaint(breakpoints.map((bp) => `@media (max-width: ${bp}px)`));
-
-const breakpointsMax = [2000, 1200, 800, 480];
-
-export const mqMax = facepaint(breakpointsMax.map((bp) => `@media (max-width: ${bp}px)`));
-
-const bp = [425, 768, 1366, 1920];
-
-export const mqMin = facepaint(bp.map((bp) => `@media (min-width: ${bp}px)`));
+export const device = {
+  xs: `@media screen and (min-width: ${breakpoints.xs})`,
+  sm: `@media screen and (min-width: ${breakpoints.sm})`,
+  md: `@media screen and (min-width: ${breakpoints.md})`,
+  lg: `@media screen and (min-width: ${breakpoints.lg})`
+};

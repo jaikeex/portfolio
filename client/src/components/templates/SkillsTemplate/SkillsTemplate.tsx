@@ -25,8 +25,8 @@ export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experien
       <Typography variant="h3" align="center">
         Professional Experience
       </Typography>
-      {experiences.map((experience: any) => (
-        <WorkExperience experience={experience} />
+      {experiences.map((experience: Work, index) => (
+        <WorkExperience key={index} experience={experience} />
       ))}
     </Section>
   );

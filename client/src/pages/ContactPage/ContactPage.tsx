@@ -1,17 +1,26 @@
 import React, { forwardRef } from 'react';
 import { ContactTemplate } from 'components/templates/ContactTemplate';
 import { useSanityData } from 'hooks';
-import { Contact } from 'types/contact';
+import type { Contact } from 'types/contact';
+import { Section, Typography, Loader } from 'components';
 
 export const ContactPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
   const { data, error, isFetching } = useSanityData<Contact[]>('contact');
 
   if (error) {
-    return <section>There was an error loading the data</section>;
+    return (
+      <Section>
+        <Typography variant="h1">There was an error loading the data...</Typography>
+      </Section>
+    );
   }
 
   if (isFetching) {
-    return <section>Loading...</section>;
+    return (
+      <Section>
+        <Loader />
+      </Section>
+    );
   }
 
   if (!data) {

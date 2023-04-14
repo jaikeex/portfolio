@@ -18,8 +18,7 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
   label = '',
   size = 'standard',
   src = ''
-}): JSX.Element => {
-  return (
+}): JSX.Element => (
     <motion.div whileInView={{ opacity: [0, 1] }} transition={{ duration: 0.35 }} style={{ textAlign: 'center' }}>
       <Styled.Img style={bgColor ? { backgroundColor: bgColor } : {}}>
         <TechnologyIcon src={src} alt={alt} />
@@ -31,4 +30,3 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
       )}
     </motion.div>
   );
-};

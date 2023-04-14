@@ -16,7 +16,7 @@ type TypographyProps<T extends Variant> = TypographyOwnProps<T> &
 
 export const Typography = forwardRef(
   <T extends Variant = 'p'>(
-    { align = 'left', className = '', children = '', size, style, variant, weight, ...props }: TypographyProps<T>,
+    { align, className = '', children = '', size, style, variant, weight, ...props }: TypographyProps<T>,
     ref: any
   ): JSX.Element => {
     const element = variant || 'p';
@@ -28,7 +28,9 @@ export const Typography = forwardRef(
         elementStyles.fontWeight = weight;
       }
 
-      elementStyles.textAlign = align;
+      if (align) {
+        elementStyles.textAlign = align;
+      }
 
       return elementStyles;
     }, [align, weight]);

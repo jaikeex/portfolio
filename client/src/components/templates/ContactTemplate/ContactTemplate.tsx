@@ -11,8 +11,7 @@ export interface ContactTemplateProps {
   phone: string;
 }
 
-export const ContactTemplate: React.FC<ContactTemplateProps> = ({ email, phone }): JSX.Element => {
-  return (
+export const ContactTemplate: React.FC<ContactTemplateProps> = ({ email, phone }): JSX.Element => (
     <Section>
       <Typography variant="h1" className="head-text">
         Take a coffee & chat with me
@@ -28,4 +27,3 @@ export const ContactTemplate: React.FC<ContactTemplateProps> = ({ email, phone }
       <ContactForm />
     </Section>
   );
-};

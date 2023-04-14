@@ -1,6 +1,5 @@
-import { urlFor } from 'client';
+import { urlFor } from 'utils/sanity-client';
 import React from 'react';
-import styles from './Project.module.scss';
 import type { ProjectData } from 'types';
 import { TechnologyBadge, Typography } from 'components';
 import { Link } from 'components/atoms/Link';
@@ -8,48 +7,51 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import parse from 'html-react-parser';
+import * as Styled from './styles';
 
 export interface ProjectProps {
   project: ProjectData;
 }
 
-export const Project: React.FC<ProjectProps> = ({ project }): JSX.Element => {
-  return (
-    <div className={styles['project']}>
-      <div className={styles['project__image']}>
+export const Project: React.FC<ProjectProps> = ({ project }): JSX.Element => (
+    <Styled.Root>
+      <Styled.ProjectImg>
         <img src={urlFor(project.imgUrl).url()} alt={`project ${project.title}`} />
-      </div>
-      <div className={styles['project__info']}>
-        <Typography variant="h2" align="center" className={styles['project__title']}>
+      </Styled.ProjectImg>
+      <Styled.ProjectInfo>
+        <Typography variant="h2" align="center">
           {project.title}
         </Typography>
+
         <Divider />
-        <Typography className={styles['project__description']}>{parse(project.description)}</Typography>
-        <div className={styles['project__technologies']}>
+
+        <Typography align="center">{parse(project.description)}</Typography>
+
+        <Styled.ProjectTechnologies>
           {project.technologies.map((tech) => (
-            <TechnologyBadge name={tech.name} src={urlFor(tech.icon).url()} />
+            <TechnologyBadge key={tech.name} name={tech.name} src={urlFor(tech.icon).url()} />
           ))}
-        </div>
-        <div className={styles['project__links']}>
-          <Link href={project.projectLink} className={styles['project__link']}>
+        </Styled.ProjectTechnologies>
+
+        <Styled.ProjectLinks>
+          <Link href={project.projectLink}>
             <Button>
-              <Typography variant="span" size="md" className={styles['project__link__text']}>
+              <Typography variant="span" size="md">
                 Homepage
               </Typography>
               <AiFillEye fontSize={24} />
             </Button>
           </Link>
 
-          <Link href={project.codeLink} className={styles['project__link']}>
+          <Link href={project.codeLink}>
             <Button>
-              <Typography variant="span" size="md" className={styles['project__link__text']}>
+              <Typography variant="span" size="md">
                 Source
               </Typography>
               <AiFillGithub fontSize={24} />
             </Button>
           </Link>
-        </div>
-      </div>
-    </div>
+        </Styled.ProjectLinks>
+      </Styled.ProjectInfo>
+    </Styled.Root>
   );
-};

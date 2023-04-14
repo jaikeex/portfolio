@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { SkillBadgeProps } from './SkillBadge';
 
 export const Img = styled('div')((props) => ({
   display: 'flex',

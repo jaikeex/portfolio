@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
-import { mq } from 'theme/breakpoints';
-import { NavigationDotsProps } from './NavigationDots';
 import { Link as ScrollLink } from 'react-scroll';
+import { device } from 'theme/breakpoints';
 
-export const Root = styled('div')(
-  mq({
-    display: ['flex', 'none', 'none'],
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'fixed',
-    top: '50%',
-    right: '2rem',
-    transform: 'translateY(-50%)',
-    zIndex: 20
-  })
-);
+export const Root = styled('div')({
+  display: 'none',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'fixed',
+  top: '50%',
+  right: '2rem',
+  transform: 'translateY(-50%)',
+  zIndex: 20,
+
+  [device.md]: {
+    display: 'flex'
+  }
+});
 
 export const Dot = styled(ScrollLink)<{ active: boolean }>((props) => ({
   width: '10px',

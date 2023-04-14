@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TypographyOwnProps } from './Typography';
+import type { TypographyOwnProps } from './Typography';
 
 export const Typography = styled('div')<TypographyOwnProps<any>>((props) => ({
   ...(props.size === 'sm' && {

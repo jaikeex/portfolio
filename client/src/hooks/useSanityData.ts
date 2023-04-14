@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { client } from 'client';
+import { client } from 'utils/sanity-client';
 
 export const useSanityData = <T>(type: string) =>
   useQuery<T>({

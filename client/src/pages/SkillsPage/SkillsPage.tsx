@@ -1,16 +1,24 @@
 import React, { forwardRef } from 'react';
-import { SkillsTemplate } from 'components';
+import { Loader, Section, SkillsTemplate, Typography } from 'components';
 import { useFetchData } from './useFetchData';
 
 export const SkillsPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | null => {
   const { skills, experiences, isFetching, error } = useFetchData();
 
   if (error) {
-    return <section>There was an error loading the data</section>;
+    return (
+      <Section>
+        <Typography variant="h1">There was an error loading the data...</Typography>
+      </Section>
+    );
   }
 
   if (isFetching) {
-    return <section>Loading...</section>;
+    return (
+      <Section>
+        <Loader />
+      </Section>
+    );
   }
 
   if (!skills || !experiences) {

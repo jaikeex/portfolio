@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TechnologyIconProps } from './TechnologyIcon';
+import type { TechnologyIconProps } from './TechnologyIcon';
 
 export const Root = styled('div')<TechnologyIconProps>((props) => ({
   display: 'flex',

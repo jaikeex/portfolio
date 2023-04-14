@@ -6,8 +6,7 @@ import * as Styled from './styles';
 
 export interface SocialMediaProps {}
 
-export const SocialMedia: React.FC<SocialMediaProps> = ({}): JSX.Element => {
-  return (
+export const SocialMedia: React.FC<SocialMediaProps> = ({}): JSX.Element => (
     <Styled.Root>
       <Link href="https://www.linkedin.com/in/jakub-hrubý-a4107b204/">
         <FaLinkedin fontSize={20} />
@@ -17,4 +16,3 @@ export const SocialMedia: React.FC<SocialMediaProps> = ({}): JSX.Element => {
       </Link>
     </Styled.Root>
   );
-};

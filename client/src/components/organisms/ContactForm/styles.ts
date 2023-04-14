@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { device } from 'styles/breakpoints';
+import { device } from 'theme/breakpoints';
 
 export const Form = styled('form')({
   width: '100%',

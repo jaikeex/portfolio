@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
-import { SkillsListProps } from './SkillsList';
-import { mq } from 'theme/breakpoints';
+import type { SkillsListProps } from './SkillsList';
+import { device } from 'theme/breakpoints';
 
-export const Root = styled('div')<SkillsListProps>((props) =>
-  mq({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: ['80%', '100%', '100%'],
-    margin: '0 auto 3rem'
-  })
-);
+export const Root = styled('div')<SkillsListProps>((props) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+  margin: '0 auto 3rem',
+
+  [device.md]: {
+    width: '80%'
+  }
+}));
 
 export const Item = styled('div')({
   flex: 1,

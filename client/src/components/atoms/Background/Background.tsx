@@ -1,9 +1,8 @@
 import React from 'react';
-import * as Styled from './styles';
 
-export const BackgroundAnimation = ({ style }: { style: React.CSSProperties }) => (
-  <Styled.Background style={style}>
-    <svg className="BgAnimation__svg" viewBox="0 0 602 602" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const BackgroundAnimation = ({ style }: { style: React.CSSProperties; }) => (
+  <div style={style}>
+    <svg viewBox="0 0 602 602" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.15">
         <path
           fillRule="evenodd"
@@ -305,5 +304,5 @@ export const BackgroundAnimation = ({ style }: { style: React.CSSProperties }) =
         </linearGradient>
       </defs>
     </svg>
-  </Styled.Background>
+  </div>
 );

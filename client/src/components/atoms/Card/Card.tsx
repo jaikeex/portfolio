@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Card = styled('div')({
-  borderRadius: '5px',
+  borderRadius: '4px',
   backgroundColor: 'white',
   padding: '1rem',
   transition: 'all 0.3s ease-in-out',

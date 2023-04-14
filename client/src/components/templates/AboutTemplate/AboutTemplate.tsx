@@ -1,8 +1,8 @@
-import { urlFor } from 'client';
+import { urlFor } from 'utils/sanity-client';
 import { HoverHighlight, Typography } from 'components/atoms';
 import { BackgroundAnimation } from 'components/atoms/Background/Background';
 import React, { useMemo } from 'react';
-import { Highlight } from 'types/about';
+import type { Highlight } from 'types/about';
 import * as Styled from './styles';
 import { Section } from 'components/atoms/Section';
 
@@ -18,8 +18,8 @@ export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, high
     <Section>
       <Typography variant="h1">About me</Typography>
       <Styled.Introduction>
-        {introduction.map((paragraph: string) => (
-          <Typography size="lg" style={{ marginBottom: '1rem' }}>
+        {introduction.map((paragraph, index) => (
+          <Typography key={index} size="lg" style={{ marginBottom: '1rem' }}>
             {paragraph}
           </Typography>
         ))}
@@ -37,8 +37,8 @@ export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, high
           </HoverHighlight>
         ))}
       </Styled.Highlights>
-      {/* <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '40%', left: '5%' }} />
-      <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '40%', right: '5%' }} /> */}
+      <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '20%', left: '5%' }} />
+      <BackgroundAnimation style={{ position: 'absolute', width: '400px', top: '20%', right: '5%' }} />
     </Section>
   );
 };

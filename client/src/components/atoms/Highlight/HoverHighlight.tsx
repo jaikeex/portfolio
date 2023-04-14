@@ -3,8 +3,7 @@ import * as Styled from './styles';
 
 type HoverHighlightProps = React.PropsWithChildren;
 
-export const HoverHighlight: React.FC<HoverHighlightProps> = ({ children }): JSX.Element => {
-  return (
+export const HoverHighlight: React.FC<HoverHighlightProps> = ({ children }): JSX.Element => (
     <Styled.Root
       whileInView={{ opacity: 1 }}
       whileHover={{ scale: 1.1 }}
@@ -14,4 +13,3 @@ export const HoverHighlight: React.FC<HoverHighlightProps> = ({ children }): JSX
       {children}
     </Styled.Root>
   );
-};

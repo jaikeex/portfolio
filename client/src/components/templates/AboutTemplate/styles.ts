@@ -1,17 +1,17 @@
 import styled from '@emotion/styled';
-import { mq } from 'theme';
+import { device } from 'theme/breakpoints';
 
-export const Section = styled('section')({
-  // display: 'grid',
-  // gridTemplateColumns: '2fr 1fr',
-  position: 'relative'
+export const Introduction = styled('div')({
+  width: '90%',
+
+  [device.sm]: {
+    width: '60%'
+  },
+
+  [device.md]: {
+    width: '40%'
+  }
 });
-
-export const Introduction = styled('div')(
-  mq({
-    width: ['60%', '100%', '100%', '80%']
-  })
-);
 
 export const Highlights = styled('div')({
   display: 'flex',
