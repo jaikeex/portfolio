@@ -33,6 +33,11 @@ export default {
       },
     },
     {
+      name: 'importance',
+      title: 'Importance',
+      type: 'number',
+    },
+    {
       name: 'technologies',
       title: 'Technologies',
       type: 'array',

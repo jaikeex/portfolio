@@ -9,10 +9,10 @@ type SkillsTemplateProps = {
 };
 
 export const SkillsTemplate: React.FC<SkillsTemplateProps> = ({ skills, experiences }): JSX.Element => {
-  const sortedSkills = useMemo(() => skills.sort((a, b) => a.importance - b.importance), skills);
+  const sortedSkills = useMemo(() => skills.sort((a, b) => a.importance - b.importance), [skills]);
 
-  const primarySkills = useMemo(() => sortedSkills.filter((skill) => skill.primary), sortedSkills);
-  const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), sortedSkills);
+  const primarySkills = useMemo(() => sortedSkills.filter((skill) => skill.primary), [sortedSkills]);
+  const secondarySkills = useMemo(() => sortedSkills.filter((skill) => !skill.primary), [sortedSkills]);
 
   return (
     <React.Fragment>

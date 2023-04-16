@@ -1,38 +1,48 @@
 import { urlFor } from 'utils/sanity-client';
 import { HoverHighlight, Typography } from 'components/atoms';
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { HighlightData } from 'types/about';
 import * as Styled from './styles';
+import { images } from 'assets';
 
 type AboutTemplateProps = {
   highlights: HighlightData[];
   introduction: string[];
 };
 
-export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, highlights }): JSX.Element => (
-  <React.Fragment>
-    <Typography variant="h1">About me</Typography>
-    <Styled.Introduction>
-      {introduction.map((paragraph, index) => (
-        <Typography key={index} size="md" style={{ marginBottom: '1rem' }}>
-          {paragraph}
+export const AboutTemplate: React.FC<AboutTemplateProps> = ({ introduction, highlights }): JSX.Element => {
+  const sortedHighlights = useMemo(() => highlights.sort((a, b) => a.importance - b.importance), [highlights]);
+
+  return (
+    <React.Fragment>
+      <Styled.Title>
+        <Typography variant="h1" removeMargin>
+          About me
         </Typography>
-      ))}
-    </Styled.Introduction>
-    <Styled.Highlights>
-      {highlights.map((highlight, index) => (
-        <HoverHighlight key={highlight.title + index}>
-          <img src={urlFor(highlight.imgUrl).url()} alt={highlight.title} />
-          <Typography variant="h3" align="center" style={{ marginTop: 20, width: '100%' }}>
-            {highlight.title}
+        <img src={images.profile} alt="profile" />
+      </Styled.Title>
+      <Styled.Introduction>
+        {introduction.map((paragraph, index) => (
+          <Typography key={index} style={{ marginBottom: '1rem' }}>
+            {paragraph}
           </Typography>
-          <Typography align="center" size="sm" style={{ marginTop: 10, width: '100%' }}>
-            {highlight.description}
-          </Typography>
-        </HoverHighlight>
-      ))}
-    </Styled.Highlights>
-    <Styled.Animation position="right" flip />
-    <Styled.Animation position="left" />
-  </React.Fragment>
-);
+        ))}
+      </Styled.Introduction>
+      <Styled.Highlights>
+        {sortedHighlights.map((highlight, index) => (
+          <HoverHighlight key={highlight.title + index}>
+            <img src={urlFor(highlight.imgUrl).url()} alt={highlight.title} />
+            <Typography variant="h3" align="center" style={{ marginTop: 20, width: '100%' }}>
+              {highlight.title}
+            </Typography>
+            <Typography align="center" size="sm" style={{ marginTop: 10, width: '100%' }}>
+              {highlight.description}
+            </Typography>
+          </HoverHighlight>
+        ))}
+      </Styled.Highlights>
+      <Styled.Animation position="right" flip />
+      <Styled.Animation position="left" />
+    </React.Fragment>
+  );
+};

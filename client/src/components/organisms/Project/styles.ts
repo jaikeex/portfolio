@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { device } from 'theme';
 
 export const Root = styled('div')((props) => ({
   width: '20rem',
@@ -9,20 +10,25 @@ export const Root = styled('div')((props) => ({
 
   display: 'flex',
   flexDirection: 'column',
-  borderRadius: '5px'
+  borderRadius: '5px',
+
+  [device.xl]: {
+    width: '25rem'
+  }
 }));
 
-export const ProjectImg = styled('div')({
+export const ProjectImg = styled('div')((props) => ({
   flexShrink: '0',
   width: '100%',
   height: '200px',
+  backgroundColor: props.theme.colors.textSecodnary,
 
   '& img': {
     width: '100%',
     height: '100%',
     objectFit: 'cover'
   }
-});
+}));
 
 export const ProjectInfo = styled('div')({
   display: 'flex',
@@ -42,6 +48,7 @@ export const ProjectTechnologies = styled('div')({
 
 export const ProjectLinks = styled('div')({
   display: 'flex',
+  justifyContent: 'center',
   gap: '1.5rem',
   marginTop: 'auto'
 });

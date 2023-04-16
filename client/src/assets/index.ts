@@ -1,5 +1,7 @@
-import logo from 'assets/logo.png';
+import logo from './logo.png';
+import profile from './profile.jpg';
 
 export const images = {
-  logo
+  logo,
+  profile
 };

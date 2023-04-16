@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import type { Theme } from 'types/theme';
+import { device } from './breakpoints';
 
 const globalStyles = (theme: Theme) => css`
   *,
@@ -44,6 +45,9 @@ const globalStyles = (theme: Theme) => css`
   p {
     font-size: ${theme.typography.p.fontSize};
     line-height: ${theme.typography.p.lineHeight};
+    ${device.xl} {
+      font-size: 1.125rem;
+    }
   }
   h1,
   h2,

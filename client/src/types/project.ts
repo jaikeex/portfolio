@@ -6,6 +6,7 @@ export interface ProjectData {
   projectLink: string;
   codeLink: string;
   imgUrl: SanityImageSource;
+  importance: number;
   technologies: ProjectTechnology[];
 }
 
