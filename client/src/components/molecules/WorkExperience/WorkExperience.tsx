@@ -25,7 +25,13 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ experience }): J
         {experience.position}
       </Typography>
       <Typography weight={500}>{experience.company}</Typography>
-      <Typography>{experience.desc}</Typography>
+      <Styled.Description>
+        {experience.desc.map((desc, index) => (
+          <li key={index}>
+            <Typography>{desc}</Typography>
+          </li>
+        ))}
+      </Styled.Description>
     </Styled.Info>
   </Styled.Root>
 );
