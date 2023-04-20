@@ -98,7 +98,7 @@ export const ContactForm: React.FC = (): JSX.Element => {
         onChange={handleChange}
         required
       />
-      {errors.username && <ErrorText>{errors.username}</ErrorText>}
+      {errors.username ? <ErrorText>{errors.username}</ErrorText> : null}
       <Input
         type="email"
         placeholder="Your Email"
@@ -107,9 +107,9 @@ export const ContactForm: React.FC = (): JSX.Element => {
         onChange={handleChange}
         required
       />
-      {errors.email && <ErrorText>{errors.email}</ErrorText>}
+      {errors.email ? <ErrorText>{errors.email}</ErrorText> : null}
       <TextArea placeholder="Your Message" name="message" value={formValues.message} onChange={handleChange} required />
-      {errors.message && <ErrorText>{errors.message}</ErrorText>}
+      {errors.message ? <ErrorText>{errors.message}</ErrorText> : null}
 
       <Button type="submit" onClick={handleSubmit}>
         <Typography weight={600} style={{ textTransform: 'uppercase' }}>

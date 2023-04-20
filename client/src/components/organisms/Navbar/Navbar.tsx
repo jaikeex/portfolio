@@ -33,7 +33,7 @@ export const Navbar: React.FC = (): JSX.Element => {
       {/* MOBILE NAVIGATION */}
       <Styled.MobileMenuButton>
         <HiMenuAlt1 onClick={handleOpenMobileNav} />
-        {mobileNavVisible && <MobileMenu sections={sections} onclose={handleCloseMobileNav} />}
+        {mobileNavVisible ? <MobileMenu sections={sections} onclose={handleCloseMobileNav} /> : null}
       </Styled.MobileMenuButton>
     </Styled.Root>
   );

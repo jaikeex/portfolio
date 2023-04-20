@@ -20,10 +20,10 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
     <Styled.Img style={bgColor ? { backgroundColor: bgColor } : {}}>
       <TechnologyIcon src={src} alt={alt} />
     </Styled.Img>
-    {label && (
+    {label ? (
       <Typography variant="span" size="sm">
         {label}
       </Typography>
-    )}
+    ) : null}
   </motion.div>
 );

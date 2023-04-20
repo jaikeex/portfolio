@@ -10,16 +10,18 @@ type TechnologyBadgeProps = {
 };
 
 export const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ name, src }): JSX.Element => {
-  const { getTooltipProps, setTooltipRef, setTriggerRef, visible } = usePopperTooltip({ placement: 'top' });
+  const { getTooltipProps, setTooltipRef, setTriggerRef, visible } = usePopperTooltip({
+    placement: 'top'
+  });
 
   return (
     <motion.div whileInView={{ opacity: [0, 1] }} transition={{ duration: 0.35 }} style={{ position: 'relative' }}>
       <TechnologyIcon ref={setTriggerRef} src={src} alt={name} size="small" />
-      {visible && (
-        <Styled.Tooltip ref={setTooltipRef} {...getTooltipProps()} variant="span">
+      {visible ? (
+        <Styled.Tooltip ref={setTooltipRef} {...getTooltipProps({ style: { pointerEvents: 'all' } })}>
           {name}
         </Styled.Tooltip>
-      )}
+      ) : null}
     </motion.div>
   );
 };

@@ -13,7 +13,7 @@ export type SkillsListProps = {
 
 export const SkillsList: React.FC<SkillsListProps> = ({ heading, hideLabel = false, skills = [] }): JSX.Element => (
   <Styled.Root>
-    {heading && <Typography variant="h3">{heading}</Typography>}
+    {heading ? <Typography variant="h3">{heading}</Typography> : null}
     <Styled.Item>
       {skills.map((skill) => (
         <SkillBadge

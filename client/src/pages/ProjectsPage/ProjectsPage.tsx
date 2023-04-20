@@ -9,9 +9,9 @@ export const ProjectsPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | n
 
   return (
     <Section ref={ref} id="projects">
-      {!!error && <Typography variant="h1">There was an error loading the data...</Typography>}
-      {isFetching && <Loader />}
-      {data && <ProjectsTemplate projects={data} />}
+      {!!error ? <Typography variant="h1">There was an error loading the data...</Typography> : null}
+      {isFetching ? <Loader /> : null}
+      {data ? <ProjectsTemplate projects={data} /> : null}
     </Section>
   );
 });

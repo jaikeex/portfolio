@@ -7,9 +7,9 @@ export const SkillsPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | nul
 
   return (
     <Section ref={ref} id="skills">
-      {!!error && <Typography variant="h1">There was an error loading the data...</Typography>}
-      {isFetching && <Loader />}
-      {skills && experiences && <SkillsTemplate skills={skills} experiences={experiences} />}
+      {!!error ? <Typography variant="h1">There was an error loading the data...</Typography> : null}
+      {isFetching ? <Loader /> : null}
+      {skills ? experiences && <SkillsTemplate skills={skills} experiences={experiences} /> : null}
     </Section>
   );
 });

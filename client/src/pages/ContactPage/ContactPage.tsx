@@ -9,9 +9,9 @@ export const ContactPage = forwardRef<HTMLDivElement>((_, ref): JSX.Element | nu
 
   return (
     <Section ref={ref} id="contact">
-      {!!error && <Typography variant="h1">There was an error loading the data...</Typography>}
-      {isFetching && <Loader />}
-      {data && <ContactTemplate email={data[0].email} phone={data[0].phone} />}
+      {!!error ? <Typography variant="h1">There was an error loading the data...</Typography> : null}
+      {isFetching ? <Loader /> : null}
+      {data ? <ContactTemplate email={data[0].email} phone={data[0].phone} /> : null}
     </Section>
   );
 });
