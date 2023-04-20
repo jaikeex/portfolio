@@ -1,9 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Button } from 'components/atoms/Button';
-import { Typography } from 'components/atoms';
-import { Input } from 'components/atoms/Input';
-import { TextArea } from 'components/atoms/TextArea';
+import { ErrorText, Typography, Button, Input, TextArea } from 'components/atoms';
 import * as Yup from 'yup';
 import * as Styled from './styles';
 
@@ -37,13 +34,12 @@ export const ContactForm: React.FC = (): JSX.Element => {
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormValues({ ...formValues, [event.target.name]: event.target.value });
     },
-    [setFormValues]
+    [setFormValues, formValues]
   );
 
   const handleSubmit = useCallback(
     async (event: React.FormEvent) => {
       event.preventDefault();
-      setLoading(true);
 
       if (!formRef.current) {
         return;
@@ -51,6 +47,23 @@ export const ContactForm: React.FC = (): JSX.Element => {
 
       try {
         await validationSchema.validate(formValues, { abortEarly: false });
+        setErrors({});
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const newErrors = error.inner.reduce((acc: FormErrors, curr) => {
+            acc[curr.path as keyof FormErrors] = curr.message;
+            return acc;
+          }, {});
+          setErrors(newErrors);
+          return;
+        } else {
+          console.log(error);
+          return;
+        }
+      }
+
+      try {
+        setLoading(true);
         await emailjs.sendForm(
           import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
           import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
@@ -59,22 +72,21 @@ export const ContactForm: React.FC = (): JSX.Element => {
         );
         setLoading(false);
         setIsFormSubmitted(true);
+        setFormValues({ email: '', message: '', username: '' });
       } catch (error) {
         setLoading(false);
-
-        if (error instanceof Yup.ValidationError) {
-          const newErrors = error.inner.reduce((acc: FormErrors, curr) => {
-            acc[curr.path as keyof FormErrors] = curr.message;
-            return acc;
-          }, {});
-          setErrors(newErrors);
-        } else {
-          console.log(error);
-        }
       }
     },
-    [setLoading, setIsFormSubmitted, setLoading, setErrors, validationSchema, formRef]
+    [setLoading, setIsFormSubmitted, setLoading, setErrors, validationSchema, formRef, errors, formValues]
   );
+
+  if (isFormSubmitted) {
+    return (
+      <Typography variant="h2" style={{ marginTop: '4rem' }}>
+        Thank you for getting in touch!
+      </Typography>
+    );
+  }
 
   return (
     <Styled.Form ref={formRef} onSubmit={handleSubmit}>
@@ -86,11 +98,7 @@ export const ContactForm: React.FC = (): JSX.Element => {
         onChange={handleChange}
         required
       />
-      {errors.username && (
-        <Typography size="lg" style={{ color: 'red' }}>
-          {errors.username}
-        </Typography>
-      )}
+      {errors.username && <ErrorText>{errors.username}</ErrorText>}
       <Input
         type="email"
         placeholder="Your Email"
@@ -99,26 +107,15 @@ export const ContactForm: React.FC = (): JSX.Element => {
         onChange={handleChange}
         required
       />
-      {errors.email && (
-        <Typography size="lg" style={{ color: 'red' }}>
-          {errors.email}
-        </Typography>
-      )}
+      {errors.email && <ErrorText>{errors.email}</ErrorText>}
       <TextArea placeholder="Your Message" name="message" value={formValues.message} onChange={handleChange} required />
-      {errors.message && (
-        <Typography size="lg" style={{ color: 'red' }}>
-          {errors.message}
+      {errors.message && <ErrorText>{errors.message}</ErrorText>}
+
+      <Button type="submit" onClick={handleSubmit}>
+        <Typography weight={600} style={{ textTransform: 'uppercase' }}>
+          {!loading ? 'Send Message' : 'Sending...'}
         </Typography>
-      )}
-      {!isFormSubmitted ? (
-        <Button type="submit" onClick={handleSubmit}>
-          <Typography weight={600} style={{ textTransform: 'uppercase' }}>
-            {!loading ? 'Send Message' : 'Sending...'}
-          </Typography>
-        </Button>
-      ) : (
-        <Typography variant="h3">Thank you for getting in touch!</Typography>
-      )}
+      </Button>
     </Styled.Form>
   );
 };
