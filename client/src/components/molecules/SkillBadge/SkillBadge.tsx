@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import * as Styled from './styles';
 import { Typography, TechnologyIcon } from 'components/atoms';
 
-type SkillBadgeProps = {
+export type SkillBadgeProps = {
   alt?: string;
   bgColor?: string;
   label?: string;
@@ -17,7 +17,7 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
   src = ''
 }): JSX.Element => (
   <motion.div whileInView={{ opacity: [0, 1] }} transition={{ duration: 0.35 }} style={{ textAlign: 'center' }}>
-    <Styled.Img style={bgColor ? { backgroundColor: bgColor } : {}}>
+    <Styled.Img bgColor={bgColor}>
       <TechnologyIcon src={src} alt={alt} />
     </Styled.Img>
     {label ? (

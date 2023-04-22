@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { SkillBadgeProps } from './SkillBadge';
 
-export const Img = styled('div')((props) => ({
+export const Img = styled('div')<SkillBadgeProps>((props) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -12,6 +13,6 @@ export const Img = styled('div')((props) => ({
   backgroundColor: props.theme.colors.backgroundSecondary,
 
   '&:hover': {
-    boxShadow: `0 0 25px ${props.theme.colors.textSecodnary}`
+    boxShadow: `0 0 25px ${props.bgColor || props.theme.colors.grey.light}`
   }
 }));

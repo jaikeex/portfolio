@@ -18,7 +18,11 @@ export const Root = styled('div')({
   }
 });
 
-export const Dot = styled(ScrollLink)<{ active: boolean; }>((props) => ({
+export const Dot = styled(ScrollLink, {
+  shouldForwardProp(propName) {
+    return propName !== 'active';
+  }
+})<{ active: boolean }>((props) => ({
   width: '10px',
   height: '10px',
   borderRadius: '50%',

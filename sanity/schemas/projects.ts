@@ -62,7 +62,6 @@ export default {
         },
       ],
     },
-
     {
       name: 'tags',
       title: 'Tags',

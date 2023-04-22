@@ -72,7 +72,11 @@ export const Highlights = styled('div')({
   }
 });
 
-export const Animation = styled(TitleAnimation)<{ position: 'right' | 'left'; flip?: boolean }>((props) => ({
+export const Animation = styled(TitleAnimation, {
+  shouldForwardProp(propName) {
+    return propName !== 'flip';
+  }
+})<{ position: 'right' | 'left'; flip?: boolean }>((props) => ({
   display: 'none',
   width: '400px',
   position: 'absolute',

@@ -8,6 +8,7 @@ export interface ProjectData {
   imgUrl: SanityImageSource;
   importance: number;
   technologies: ProjectTechnology[];
+  tags: string[];
 }
 
 export interface ProjectTechnology {

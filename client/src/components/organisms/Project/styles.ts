@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { device } from 'theme';
 
 export const Root = styled('div')((props) => ({
-  width: '20rem',
+  width: '18rem',
   position: 'relative',
   flexShrink: 0,
   backgroundColor: props.theme.colors.backgroundSecondary,
@@ -30,6 +30,18 @@ export const ProjectImg = styled('div')((props) => ({
   }
 }));
 
+export const ProjectTags = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '0.25rem',
+  marginTop: '-0.125rem',
+  marginBottom: '0.375rem',
+  overflow: 'hidden',
+  '& > span': {
+    flexShrink: 0
+  }
+});
+
 export const ProjectInfo = styled('div')({
   display: 'flex',
   flexDirection: 'column',
@@ -42,13 +54,13 @@ export const ProjectTechnologies = styled('div')({
   justifyContent: 'center',
   alignItems: 'center',
   gap: '1rem',
-  margin: '2rem 0',
+  margin: '1rem 0 1.5rem',
   flexWrap: 'wrap'
 });
 
 export const ProjectLinks = styled('div')({
   display: 'flex',
-  justifyContent: 'center',
-  gap: '1.5rem',
+  justifyContent: 'space-around',
+  gap: '0.5rem',
   marginTop: 'auto'
 });
