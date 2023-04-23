@@ -13,7 +13,7 @@ export const Root = styled('div')((props) => ({
   borderRadius: '5px',
 
   [device.xl]: {
-    width: '25rem'
+    width: '23rem'
   }
 }));
 

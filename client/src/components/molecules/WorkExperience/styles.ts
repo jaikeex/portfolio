@@ -25,7 +25,7 @@ export const Info = styled(motion.div)({
 
 export const Description = styled('ul')((props) => ({
   '& li': {
-    margin: '0 0 0.5rem 1rem',
+    margin: '0 0 0.25rem 1rem',
     color: props.theme.colors.textPrimary
   }
 }));
