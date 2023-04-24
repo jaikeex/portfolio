@@ -1,5 +1,5 @@
 import { urlFor } from 'utils/sanity-client';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import type { ProjectData } from 'types';
 import { Chip, TechnologyBadge, Typography } from 'components';
 import { Link } from 'components/atoms/Link';

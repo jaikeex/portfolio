@@ -5,7 +5,7 @@ import * as Styled from './styles';
 
 export const SocialMedia: React.FC = (): JSX.Element => (
   <Styled.Root>
-    <Link href="https://www.linkedin.com/in/jakub-hrubý-a4107b204/" openInNew>
+    <Link href="https://www.linkedin.com/in/kubahruby" openInNew>
       <FaLinkedin fontSize={20} />
     </Link>
     <Link href="https://github.com/jaikeex" openInNew>
