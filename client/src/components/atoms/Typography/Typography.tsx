@@ -48,7 +48,7 @@ export const Typography = forwardRef(
       }
 
       return elementStyles;
-    }, [align, weight]);
+    }, [align, weight, removeMargin, style]);
 
     return (
       <Styled.Typography as={element} ref={ref} style={styles} className={className} size={size} {...props}>
